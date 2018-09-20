@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-document-viewer" spec="^0.9.10" />
     <engine name="android" spec="7.0.0" />
     <engine name="browser" spec="5.0.4" />
+    <plugin name="cordova-plugin-firebase" spec="^2.0.2" />
 </widget>

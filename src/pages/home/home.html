@@ -14,14 +14,31 @@
 
 
 
-  <embed src="https://www.adobe.com/content/dam/acom/en/devnet/acrobat/pdfs/pdf_open_parameters.pdf" type="application/pdf" width="100%" height="600px" />  
+  <embed src="https://firebasestorage.googleapis.com/v0/b/rosotta-delivery.appspot.com/o/Richiesta%20CC%20somme%20erogate%20dallo%20Stato.pdf?alt=media&token=8a67858b-0142-4a0a-9cba-51c1b14969fc" type="application/pdf" width="100%" height="600px" />  
 
+  <progress type="file" value="upload" id="prog">0%</progress>
 
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
+
+
+  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    // TODO: Replace with your project's customized code snippet
+    var config = {
+      apiKey: "AIzaSyCy7PJ1fretX5qFtyXE0HCIKFPDVWqhDsI",
+      authDomain: "rosotta-delivery.firebaseapp.com",
+      databaseURL: "https://rosotta-delivery.firebaseio.com/",
+      projectId: "rosotta-delivery",
+      storageBucket: "gs://rosotta-delivery.appspot.com",
+    };
+    firebase.initializeApp(config);
+  </script>
+
 
   
 </ion-content>

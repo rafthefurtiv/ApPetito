@@ -11,6 +11,22 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { DocumentViewer } from '@ionic-native/document-viewer';
 
+
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorage } from 'angularfire2/storage';
+
+
+import { environment } from '../environment/environment';
+import { HttpClientModule } from '@angular/common/http'; 
+import { HttpModule } from '@angular/http';
+
+
+import { UserServiceProvider } from '../providers/user-service/user-service';
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -20,6 +36,10 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -31,6 +51,9 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
     StatusBar,
     SplashScreen,
     DocumentViewer,
+    UserServiceProvider,
+    AngularFirestore,
+    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
