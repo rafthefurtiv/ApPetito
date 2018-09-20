@@ -8,8 +8,9 @@ import { HttpModule } from '@angular/http';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-//import { AngularFireDatabase  } from 'angularfire2/firestore';
+import { AngularFireDatabase  } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
+
 
 /*
   Generated class for the UserServiceProvider provider.
@@ -20,14 +21,39 @@ import { AngularFireStorage } from 'angularfire2/storage';
 @Injectable()
 export class UserServiceProvider {
 
+public listaa;
+
   items: Observable<any[]>;
   constructor(
-    afStorage: AngularFirestore
+    public db: AngularFireDatabase
     ) {
-    let ref = afStorage.collection<Int16Array>('prova');
-     
+    let ref = this.db.list('/prova2/');
+    this.listaa = this.db.list('/utenti/');
     // let url = ref.getDownloadURL();
-      console.log("mamma:"+ ref.toString() );
+
+    for (let entry of this.listaa) {
+      console.log("mamma:"+ entry);
+  }
+    // let url = ref.getDownloadURL();
+//
+      console.log("mamma:"+ this.listaa);
+      return this.listaa;
+  }
+
+
+  getLista(){
+
+    let ref = this.db.list('/prova2/');
+    this.listaa = this.db.list('/utenti/raf');
+    // let url = ref.getDownloadURL();
+
+    for (let entry of this.listaa) {
+      console.log("mamma:"+ entry);
+  }
+  
+//
+      console.log("mamma:"+ ref);
+      return this.listaa;
   }
 
 

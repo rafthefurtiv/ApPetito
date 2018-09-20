@@ -29,6 +29,9 @@ export class HomePage {
 
     console.log("Ut: " + utenti);
 
+    this.prova = [{text : "weq"}];
+
+    console.log("prova: " + this.prova[0].text);
     
   }
 

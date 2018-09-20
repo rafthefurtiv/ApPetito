@@ -14,9 +14,10 @@ import { DocumentViewer } from '@ionic-native/document-viewer';
 
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorage } from 'angularfire2/storage';
-
 
 import { environment } from '../environment/environment';
 import { HttpClientModule } from '@angular/common/http'; 
@@ -39,6 +40,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     HttpModule,
+    AngularFireDatabaseModule,
     HttpClientModule
   ],
   bootstrap: [IonicApp],
@@ -53,7 +55,6 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     DocumentViewer,
     UserServiceProvider,
     AngularFirestore,
-    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
