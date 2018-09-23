@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
 import { AngularFirestore } from 'angularfire2/firestore';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, FirebaseDatabase } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireDatabase  } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
@@ -28,15 +28,17 @@ public listaa;
     public db: AngularFireDatabase
     ) {
     let ref = this.db.list('/prova2/');
-    this.listaa = this.db.list('/utenti/');
+    this.listaa = this.db.list('/utenti/raf').valueChanges();
+    //.push({nome:"Prova1", cognome:"Prova1", mail:"prova@gmail.com"});
     // let url = ref.getDownloadURL();
 
     for (let entry of this.listaa) {
-      console.log("mamma:"+ entry);
+      console.log("mamma:");
   }
+
     // let url = ref.getDownloadURL();
 //
-      console.log("mamma:"+ this.listaa);
+      console.log("mamma:"+ this.listaa.nome);
       return this.listaa;
   }
 

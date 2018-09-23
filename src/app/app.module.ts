@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { PagesPdfViewPage } from '../pages/pages-pdf-view/pages-pdf-view';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +33,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    PagesPdfViewPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    PagesPdfViewPage
   ],
   providers: [
     StatusBar,
@@ -55,6 +58,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     DocumentViewer,
     UserServiceProvider,
     AngularFirestore,
+    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
