@@ -23,6 +23,10 @@ import { resolveDefinition } from '@angular/core/src/view/util';
 import { Http, Headers } from '@angular/http';
 
 
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+
+
 export class user {
   nome: string;
   cognome: string;
@@ -42,19 +46,23 @@ export class HomePage {
   dataFormatted;
   userDoc : AngularFireList<user>;  
   posts: any;
-  
+  public localMail: string ="";
 
   constructor(
     public navCtrl: NavController,
     public userService: UserServiceProvider,
     fireStore: AngularFireDatabase,
     public http: Http,
-    public stModule: AngularFireStorage
+    public stModule: AngularFireStorage,
+    public authService: AuthServiceProvider
     ) {
 
-
+/*
       //let options = new RequestOptions({ headers: "", params: "" });
-      let localMail = "rafthefurtiv@gmail.com";
+      //let localMail = "rafthefurtiv@gmail.com";
+
+      this.localMail = authService.getUserMail();
+
       let headers = new Headers({ 'X-Parse-Application-Id': 'Qk4C6ALlWpFfgtJS5GvQ0QjgBAv0adzEWmOazZpd', 
       'X-Parse-Master-Key':'fyQxepDJK6NZOjS6lKRho2lxP8S8F4UF6IAZSDjT',
       'Content-Type': 'application/json'
@@ -75,7 +83,7 @@ export class HomePage {
       });
 
 
-      console.log("Ref: "+this.stModule.ref("files/"+localMail));
+      console.log("Ref: "+this.stModule.ref("files/"+ this.localMail));
 
       // USING FIREBASE
      // this.data = res._body;
@@ -87,7 +95,7 @@ export class HomePage {
 
       });
 
-    
+    */
   }
 
   
@@ -100,7 +108,9 @@ export class HomePage {
     console.log("Data: " + this.dataFormatted.nome);
   }
 
-
+  provas(){
+    console.log("Email: " + this.localMail);
+  }
 
 
 

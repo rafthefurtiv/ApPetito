@@ -5,6 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,6 +30,9 @@ import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { StorageServiceProvider } from '../providers/storage-service/storage-service';
 
 
 
@@ -35,7 +40,9 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LoginPage,
+    PdfViewerPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,9 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    LoginPage,
+    PdfViewerPage
   ],
   providers: [
     StatusBar,
@@ -59,8 +68,11 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     DocumentViewer,
     UserServiceProvider,
     AngularFirestore,
+    AngularFireAuth,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider,
+    StorageServiceProvider
   ]
 })
 export class AppModule {}
