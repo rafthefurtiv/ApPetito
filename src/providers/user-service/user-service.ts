@@ -28,19 +28,22 @@ public listaa;
     public db: AngularFireDatabase
     ) {
     let ref = this.db.list('/prova2/');
-    this.listaa = this.db.list('/utenti/');
+    this.listaa = this.db.list('/prova2/');
     // let url = ref.getDownloadURL();
 
     for (let entry of this.listaa) {
       console.log("mamma:"+ entry);
-  }
+   }
+
+    //this.listaa.push({test:"prova"});
     // let url = ref.getDownloadURL();
 //
-      console.log("mamma:"+ this.listaa);
+      //console.log("mamma:"+ this.listaa);
       return this.listaa;
   }
 
 
+  /*
   getLista(){
 
     let ref = this.db.list('/prova2/');
@@ -56,7 +59,7 @@ public listaa;
       return this.listaa;
   }
 
-
+*/
   
 
 }

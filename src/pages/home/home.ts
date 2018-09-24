@@ -3,6 +3,32 @@ import { NavController, NavParams } from 'ionic-angular';
 import { UserServiceProvider } from '../../providers/user-service/user-service';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+
+import { Observable } from 'rxjs';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorage } from 'angularfire2/storage';
+
+
+import { RequestOptions } from '@angular/http';
+//import 'rxjs/add/operator/map';
+//import 'rxjs/Rx';
+import { resolveDefinition } from '@angular/core/src/view/util';
+import { Http, Headers } from '@angular/http';
+
+
+export class user {
+  nome: string;
+  cognome: string;
+  mail: string;
+}
+
 
 
 @Component({
@@ -12,32 +38,66 @@ import { HttpModule } from '@angular/http';
 export class HomePage {
 
   prova;
-
-
+  data;
+  dataFormatted;
+  userDoc : AngularFireList<user>;  
+  posts: any;
+  
 
   constructor(
     public navCtrl: NavController,
-    public userService: UserServiceProvider
+    public userService: UserServiceProvider,
+    fireStore: AngularFireDatabase,
+    public http: Http,
+    public stModule: AngularFireStorage
     ) {
 
 
-    this.prova= "Ciaone";
-    console.log('Hello Mammt Provider');
+      //let options = new RequestOptions({ headers: "", params: "" });
+      let localMail = "rafthefurtiv@gmail.com";
+      let headers = new Headers({ 'X-Parse-Application-Id': 'Qk4C6ALlWpFfgtJS5GvQ0QjgBAv0adzEWmOazZpd', 
+      'X-Parse-Master-Key':'fyQxepDJK6NZOjS6lKRho2lxP8S8F4UF6IAZSDjT',
+      'Content-Type': 'application/json'
+    });
+      let options = new RequestOptions({ headers: headers });
+      
+      //let ut3 = this.http.get('https://rosotta-delivery.firebaseio.com/utenti/'+ localMail.replace('.', '') +'.json', options).subscribe((res) => {
+        let ut3 = this.http.get('https://parseapi.back4app.com/classes/utenti', options).subscribe((res) => {
 
-    var utenti = "db.collection('utenti')";
+        this.data = res.json().results;
+        console.log("Stringa: "+this.data.length);
 
 
-    console.log("Ut: " + utenti);
+        // DEBUG
+      this.data.forEach(element => {
+        console.log("Cognome: "+ element.cognome);
 
-    this.prova = [{text : "weq"}];
+      });
 
-    console.log("prova: " + this.prova[0].text);
+
+      console.log("Ref: "+this.stModule.ref("files/"+localMail));
+
+      // USING FIREBASE
+     // this.data = res._body;
+        //this.dataFormatted = JSON.parse(this.data);
+        //let itemsRef: AngularFireList<any>;
+        //itemsRef = JSON.parse(this.data);
+
+       // this.readData(); // DEBUG
+
+      });
+
     
   }
 
   
   ionViewDidLoad() {
     console.log('ionViewDidLoad SujetPage');
+  }
+
+
+  readData(){
+    console.log("Data: " + this.dataFormatted.nome);
   }
 
 

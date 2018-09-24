@@ -18,10 +18,13 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { environment } from '../environment/environment';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
+
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 
 import { UserServiceProvider } from '../providers/user-service/user-service';
@@ -41,7 +44,8 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     AngularFirestoreModule,
     HttpModule,
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -55,6 +59,7 @@ import { UserServiceProvider } from '../providers/user-service/user-service';
     DocumentViewer,
     UserServiceProvider,
     AngularFirestore,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
