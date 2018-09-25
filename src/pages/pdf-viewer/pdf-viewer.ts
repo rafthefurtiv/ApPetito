@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 /**
  * Generated class for the PdfViewerPage page.
@@ -22,10 +23,15 @@ export class PdfViewerPage {
   constructor(public navCtrl: NavController, 
     public navParams: NavParams, 
     public sanitizer: DomSanitizer,
-    public storageService: StorageServiceProvider
+    public storageService: StorageServiceProvider,
+    private document: DocumentViewer
   ) {
 
     //this.pdfURL();
+    this.document.viewDocument(this.pdfUrl, 'application/pdf', {
+      title: 'My PDF'
+    }
+  )
 
   }
 
@@ -47,5 +53,6 @@ export class PdfViewerPage {
   pdfURL(){
        return this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfUrl);
   }
+
 
 }

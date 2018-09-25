@@ -18,8 +18,15 @@
 
 <ion-content padding>
 
+
+  <a [href]="pdfURL()">Download PDF</a>
+
   <div *ngIf="loaded">
+      <iframe [src]="pdfURL()" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+      <!--
     <embed [src]="pdfURL()" type="application/pdf" width="100%" height="600px"/>  
+    -->
   </div>
 
   <div *ngIf="!loaded">
