@@ -12,6 +12,10 @@
   
   <h3 style="text-align: center; margin-top: 60px;">Benvenuto nella Home</h3>
 
+
+<div style="display: flex; justify-content: center;margin-top: 100px;">
+  <a align-items-center *ngIf="loaded" button ion-button [href]="pdfURL()" secondar class="button">Download BIA</a>
+</div>
 <!--
   <embed src="https://firebasestorage.googleapis.com/v0/b/rosotta-delivery.appspot.com/o/Richiesta%20CC%20somme%20erogate%20dallo%20Stato.pdf?alt=media&token=8a67858b-0142-4a0a-9cba-51c1b14969fc" type="application/pdf" width="100%" height="600px" />  
 

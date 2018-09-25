@@ -25,6 +25,8 @@ import { Http, Headers } from '@angular/http';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
+import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 
 export class user {
@@ -48,13 +50,19 @@ export class HomePage {
   posts: any;
   public localMail: string ="";
 
+
+  pdfUrl="";
+  loaded= false;
+
   constructor(
     public navCtrl: NavController,
     public userService: UserServiceProvider,
     fireStore: AngularFireDatabase,
     public http: Http,
     public stModule: AngularFireStorage,
-    public authService: AuthServiceProvider
+    public authService: AuthServiceProvider,
+    public sanitizer: DomSanitizer,
+    public storageService: StorageServiceProvider
     ) {
 
 /*
@@ -110,6 +118,22 @@ export class HomePage {
 
   provas(){
     console.log("Email: " + this.localMail);
+  }
+
+
+  ngOnInit() {
+    this.loaded = false;
+    this.storageService.getUrlStorage().then(
+      data => {
+        this.pdfUrl = data;
+        this.loaded = true;
+      }
+    );
+  }
+
+  pdfURL(){
+
+       return this.sanitizer.bypassSecurityTrustResourceUrl(this.pdfUrl);
   }
 
 

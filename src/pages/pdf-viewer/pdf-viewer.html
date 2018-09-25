@@ -21,14 +21,22 @@
 
   <a [href]="pdfURL()">Download PDF</a>
 
+
+  <button (click)="openBrowser()">Download PDF</button>
+
+
+  <iframe [src]="pdfURL()" width="50px" height="50px" frameborder="0"></iframe>
+
+  <!--
   <div *ngIf="loaded">
-      <iframe [src]="pdfURL()" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe [src]="pdfURL()" width="50px" height="50px" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-      <!--
+      <!
     <embed [src]="pdfURL()" type="application/pdf" width="100%" height="600px"/>  
-    -->
+   
+    
   </div>
-
+-->
   <div *ngIf="!loaded">
     <p> Loading... </p>
   </div>
