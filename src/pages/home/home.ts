@@ -49,6 +49,7 @@ export class HomePage {
   userDoc : AngularFireList<user>;  
   posts: any;
   public localMail: string ="";
+  errorMessage="";
 
 
   pdfUrl="";
@@ -128,7 +129,12 @@ export class HomePage {
         this.pdfUrl = data;
         this.loaded = true;
       }
-    );
+    ).catch(
+      (error:any) => {
+        console.log(error);
+        this.errorMessage = "File non disponibile";
+      }
+  );
   }
 
   pdfURL(){

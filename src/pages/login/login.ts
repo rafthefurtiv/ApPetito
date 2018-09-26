@@ -19,7 +19,9 @@ import { MenuController } from 'ionic-angular';
 export class LoginPage {
 
   loginForm: FormGroup;
-	loginError: string;
+  loginError;
+  
+  
 
 
   credentials: any = {"email":"", "password":""};
@@ -31,6 +33,7 @@ export class LoginPage {
      public menu: MenuController
     ) {
 
+      this.loginErrorReset();
 
       this.menu.enable(false);
 
@@ -48,6 +51,7 @@ export class LoginPage {
 
 
   logIn(){
+    this.loginErrorReset();
 
     let data = this.loginForm.value;
     
@@ -62,11 +66,34 @@ export class LoginPage {
 
 		this.auth.signInWithEmail(credentials)
 			.then(
-				() => {this.menu.enable(true); this.navCtrl.setRoot(HomePage); },
-				error => this.loginError = error.message
+				() => {this.menu.enable(true); this.navCtrl.setRoot(HomePage);   console.log("User " + data.email + " logged In.");},
+				error => {
+          if(error.message.includes('network error')){
+            this.loginError.emailError = "Errore di connessione.";
+          }
+          else if(error.message.includes('badly formatted')){
+            this.loginError.emailError = "Email non valida";
+          }
+          else if(error.message.includes('no user record')){
+            this.loginError.emailError = "Utente inesistente";
+          }
+          else if(error.message.includes('password is invalid')){
+            this.loginError.passwordError = "Password errata";
+          }
+             
+          console.log("User " + data.email + " Error LogIn: " + error.message);}
 			);
 
-    console.log("User " + data.email + " logged In.");
+  
+  }
+
+
+
+  loginErrorReset(){
+   this.loginError = {
+      "emailError" : "",
+      "passwordError" : ""
+    };
   }
 
 }
