@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { HomePage } from '../../pages/home/home';
 import { MenuController } from 'ionic-angular';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 /**
  * Generated class for the LoginPage page.
@@ -30,9 +31,10 @@ export class LoginPage {
      public navParams: NavParams, 
      public fb: FormBuilder,
      private auth: AuthServiceProvider,
-     public menu: MenuController
+     public menu: MenuController,
+     private splashScreen: SplashScreen
     ) {
-
+      splashScreen.hide();
       this.loginErrorReset();
 
       this.menu.enable(false);
