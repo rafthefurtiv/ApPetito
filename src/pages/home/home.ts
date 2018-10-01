@@ -144,4 +144,21 @@ export class HomePage {
 
 
 
+/*
+  Next, add this constant function after the Class body for converting Firebase response to an array.
+
+  export const snapshotToArray = snapshot => {
+      let returnArr = [];
+  
+      snapshot.forEach(childSnapshot => {
+          let item = childSnapshot.val();
+          item.key = childSnapshot.key;
+          returnArr.push(item);
+      });
+  
+      return returnArr;
+  };
+*/
+
+
 }

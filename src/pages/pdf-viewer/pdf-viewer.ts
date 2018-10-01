@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import { StorageServiceProvider } from '../../providers/storage-service/storage-service';
 
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 
 /**
  * Generated class for the PdfViewerPage page.

@@ -6,12 +6,12 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
+//import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { DocumentViewer } from '@ionic-native/document-viewer';
+//import { DocumentViewer } from '@ionic-native/document-viewer';
 
 
 import { AngularFirestore } from 'angularfire2/firestore';
@@ -41,8 +41,8 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     MyApp,
     HomePage,
     ListPage,
-    LoginPage,
-    PdfViewerPage
+    LoginPage//,
+    //PdfViewerPage
   ],
   imports: [
     BrowserModule,
@@ -59,13 +59,13 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     MyApp,
     HomePage,
     ListPage,
-    LoginPage,
-    PdfViewerPage
+    LoginPage//,
+    //PdfViewerPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    DocumentViewer,
+    //DocumentViewer,
     UserServiceProvider,
     AngularFirestore,
     AngularFireAuth,

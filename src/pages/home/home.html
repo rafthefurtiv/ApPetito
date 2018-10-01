@@ -13,11 +13,11 @@
   <h3 style="text-align: center; margin-top: 20px; color: #488aff;">ApPetito</h3>
 
 
-  <p style="text-align: center; margin-top: 30px; color: rgb(71, 71, 71);">Scarica il PDF contenente i risultati della BIA</p>
+  <p style="text-align: center; margin-top: 30px; color: rgb(71, 71, 71);">Scarica il PDF contenente la scheda nutrizionale.</p>
 
 <div style="display: flex; justify-content: center;margin-top: 50%;">
     <img *ngIf="!loaded && errorMessage == ''" style="margin-top: -40px;" src="assets/loading.gif" alt="LOADING">
-    <a *ngIf="loaded" button ion-button [href]="pdfURL()" secondar class="button">Download BIA</a>
+    <a *ngIf="loaded" button ion-button [href]="pdfURL()" secondar class="button">Download scheda nutrizionale</a>
 </div>
 
 <p *ngIf="errorMessage != ''" class="isa_error near">{{errorMessage}}</p>
@@ -37,19 +37,20 @@
 -->
 <footer style="color: rgb(180, 180, 180);">App del Dr. Marco Petito</footer>
 
-  <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    // TODO: Replace with your project's customized code snippet
-    var config = {
-      apiKey: "AIzaSyCy7PJ1fretX5qFtyXE0HCIKFPDVWqhDsI",
-      authDomain: "rosotta-delivery.firebaseapp.com",
-      databaseURL: "https://rosotta-delivery.firebaseio.com/",
-      projectId: "rosotta-delivery",
-      storageBucket: "gs://rosotta-delivery.appspot.com",
-    };
-    firebase.initializeApp(config);
-  </script>
+
+<script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCYYuGDWnDQTwe3qgb0O77YKtL773k11Ac",
+    authDomain: "appetito-7fa9d.firebaseapp.com",
+    databaseURL: "https://appetito-7fa9d.firebaseio.com",
+    projectId: "appetito-7fa9d",
+    storageBucket: "appetito-7fa9d.appspot.com",
+    messagingSenderId: "692457860559"
+  };
+  firebase.initializeApp(config);
+</script>
 
 
   

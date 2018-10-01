@@ -1,10 +1,10 @@
 export const environment = {
     production: false,
     firebase: {
-      apiKey: "AIzaSyCy7PJ1fretX5qFtyXE0HCIKFPDVWqhDsI",
-      authDomain: "rosotta-delivery.firebaseapp.com",
-      databaseURL: "https://rosotta-delivery.firebaseio.com/",
-      projectId: "rosotta-delivery",
-      storageBucket: "gs://rosotta-delivery.appspot.com"
+      apiKey: "AIzaSyCYYuGDWnDQTwe3qgb0O77YKtL773k11Ac",
+      authDomain: "appetito-7fa9d.firebaseapp.com",
+      databaseURL: "https://appetito-7fa9d.firebaseio.com",
+      projectId: "appetito-7fa9d",
+      storageBucket: "gs://appetito-7fa9d.appspot.com"
     }
   }

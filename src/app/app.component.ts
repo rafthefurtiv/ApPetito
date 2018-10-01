@@ -4,9 +4,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+//import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
+//import { PdfViewerPage } from '../pages/pdf-viewer/pdf-viewer';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 
