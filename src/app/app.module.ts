@@ -29,7 +29,6 @@ import { HttpModule } from '@angular/http';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 
 
-import { UserServiceProvider } from '../providers/user-service/user-service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { StorageServiceProvider } from '../providers/storage-service/storage-service';
@@ -66,7 +65,6 @@ import { StorageServiceProvider } from '../providers/storage-service/storage-ser
     StatusBar,
     SplashScreen,
     //DocumentViewer,
-    UserServiceProvider,
     AngularFirestore,
     AngularFireAuth,
     AngularFireDatabase,
